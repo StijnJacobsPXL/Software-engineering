@@ -7,13 +7,13 @@ import pandas as pd
 class Helper:
     def __init__(self):
         self.students = None
-    
+
     def setHelperStudents(self, students):
         self.students = students
 
     def get_students_from_csv(self, path):
         student_data = pd.read_csv(path)
-        self.students =  [
+        self.students = [
             Student(
                 row.firstname,
                 row.lastname,
@@ -36,7 +36,7 @@ class Helper:
 
     def print_students(self):
         for student in self.students:
-            x = student.name_print() 
+            x = student.name_print()
             print(x)
 
     def get_student_by_GUID(self, GUID):
@@ -47,7 +47,6 @@ class Helper:
 
     def get_students_by_name(self, given_name):
         return [student for student in self.students if student.given_name == given_name]
-    
+
     def get_groupless_students(self):
         return [student for student in self.students if not student.group_number]
-

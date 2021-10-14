@@ -21,11 +21,11 @@ class TestResource:
         helper.setHelperStudents(student_list)
         helper.make_group(student_list, group_size, 1)
         assert sut.group_number == 1
-    
+
     def test_studentInfoOutput(self, sut):
         infoOutput = sut.info()
         assert infoOutput == "0 firstname lastname \t f.n@mail.com \t m"
-    
+
     def test_name_print(self, sut):
         simple_print = sut.name_print()
         assert simple_print == "firstname lastname"
