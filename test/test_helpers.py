@@ -4,6 +4,7 @@ from src.group import Group
 from src.student import Student
 from src.helpers import Helper
 
+
 @pytest.fixture()
 def sut():
     sut0 = Student(0, "m", "firstname", "lastname", "f.n@mail.com", "test12345")
@@ -13,6 +14,7 @@ def sut():
     sut = [sut0, sut1, sut2, sut3]
     yield sut
 
+
 class TestResource:
     def test_make_group(self, sut):
         helper = Helper()
@@ -20,7 +22,8 @@ class TestResource:
         thisGroup = helper.make_group(sut, 4, 1)
         for student in sut:
             assert student.group_number == 1
-        
+
+
 def test_print_students(capfd):
     sut0 = Student(0, "m", "firstname", "lastname", "f.n@mail.com", "test12345")
     sut1 = Student(1, "m", "firstname1", "lastname1", "f1.n1@mail1.com1", "test1")
@@ -31,4 +34,4 @@ def test_print_students(capfd):
     helper.setHelperStudents(sut)
     helper.print_students()
     out, err = capfd.readouterr()
-    assert  out== "firstname lastname\nfirstname1 lastname1\nfirstname2 lastname2\nfirstname3 lastname3\n"
+    assert out == "firstname lastname\nfirstname1 lastname1\nfirstname2 lastname2\nfirstname3 lastname3\n"

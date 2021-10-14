@@ -3,6 +3,7 @@ from src.group import Group
 from src.student import Student
 from src.helpers import Helper
 
+
 def main():
     h = Helper()
     file_path = input("Give the path of the file: ")
